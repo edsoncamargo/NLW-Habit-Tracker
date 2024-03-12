@@ -130,7 +130,7 @@ Next, follow the steps below:
    npm install
    ```
 
-2. Start the app:
+2. Start the web:
 
    ```bash
    npx expo start
