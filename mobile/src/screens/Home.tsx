@@ -1,14 +1,14 @@
-import { Text, View, ScrollView, Alert } from 'react-native';
-import { Header } from '../components/Header';
-import { HabitDay, DAY_SIZE } from '../components/HabitDay';
-import { generateRangeDatesFromYearStart } from '../utils/generate-range-between-dates';
-import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import { api } from '../lib/axios';
-import { useCallback, useEffect, useState } from 'react';
-import { Loading } from '../components/Loading';
-import dayjs from 'dayjs';
+import { Text, View, ScrollView, Alert } from "react-native";
+import { Header } from "../components/Header";
+import { HabitDay, DAY_SIZE } from "../components/HabitDay";
+import { generateRangeDatesFromYearStart } from "../utils/generate-range-between-dates";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
+import { api } from "../lib/axios";
+import { useCallback, useEffect, useState } from "react";
+import { Loading } from "../components/Loading";
+import dayjs from "dayjs";
 
-const weekDays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+const weekDays = ["D", "S", "T", "Q", "Q", "S", "S"];
 
 const datesFromYearStart = generateRangeDatesFromYearStart();
 const minimumSummaryDatesSizes = 18 * 7;
@@ -29,10 +29,11 @@ export function Home() {
   async function getSummary() {
     try {
       setLoading(true);
-      const response = await api.get('summary');
+      const response = await api.get("summary");
+      console.log("entrei");
       setSummary(response.data);
     } catch (error) {
-      Alert.alert('Ops!', 'Not found summary =(');
+      Alert.alert("Ops!", "Not found summary =(");
       console.error(error);
     } finally {
       setLoading(false);
@@ -73,7 +74,7 @@ export function Home() {
           <View className="flex-row flex-wrap">
             {datesFromYearStart.map((dateFromYearStart, index) => {
               const dayWithHabits = summary!.find((day) => {
-                return dayjs(dateFromYearStart).isSame(day.date, 'day');
+                return dayjs(dateFromYearStart).isSame(day.date, "day");
               });
 
               return (
@@ -83,7 +84,7 @@ export function Home() {
                   completed={dayWithHabits?.completed}
                   amount={dayWithHabits?.amount}
                   onPress={() =>
-                    navigate('habit', { date: dateFromYearStart.toISOString() })
+                    navigate("habit", { date: dateFromYearStart.toISOString() })
                   }
                 ></HabitDay>
               );

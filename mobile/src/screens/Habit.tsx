@@ -1,15 +1,15 @@
-import { View, ScrollView, Text, Alert } from 'react-native';
-import { useRoute } from '@react-navigation/native';
-import { BackButton } from '../components/BackButton';
-import dayjs from 'dayjs';
-import { ProgressBar } from '../components/ProgressBar';
-import { Checkbox } from '../components/Checkbox';
-import { useEffect, useState } from 'react';
-import { Loading } from '../components/Loading';
-import { api } from '../lib/axios';
-import { generateProgressPercentage } from '../utils/generate-progress-percentage';
-import { HabitsEmpty } from '../components/HabitsEmpty';
-import clsx from 'clsx';
+import { View, ScrollView, Text, Alert } from "react-native";
+import { useRoute } from "@react-navigation/native";
+import { BackButton } from "../components/BackButton";
+import dayjs from "dayjs";
+import { ProgressBar } from "../components/ProgressBar";
+import { Checkbox } from "../components/Checkbox";
+import { useEffect, useState } from "react";
+import { Loading } from "../components/Loading";
+import { api } from "../lib/axios";
+import { generateProgressPercentage } from "../utils/generate-progress-percentage";
+import { HabitsEmpty } from "../components/HabitsEmpty";
+import clsx from "clsx";
 
 interface HabitParams {
   date: string;
@@ -33,12 +33,12 @@ export function Habit() {
   );
 
   const parsedDate = dayjs(date);
-  const dayOfWeek = parsedDate.format('dddd');
-  const dayAndMonth = parsedDate.format('DD/YY');
+  const dayOfWeek = parsedDate.format("dddd");
+  const dayAndMonth = parsedDate.format("DD/YY");
 
   const isPreviousToday = dayjs(date)
-    .endOf('day')
-    .isBefore(dayjs(new Date()).endOf('day'));
+    .endOf("day")
+    .isBefore(dayjs(new Date()).endOf("day"));
 
   useEffect(() => {
     getHabitsByDate();
@@ -58,12 +58,12 @@ export function Habit() {
         }
       } catch (error) {
         console.error(error);
-        Alert.alert('Ops!', 'Error when trying to update.');
+        Alert.alert("Ops!", "Error when trying to update.");
       }
     } else {
       Alert.alert(
         "You're kidding!",
-        'It is not possible to change the habit of a day that has passed 😂'
+        "It is not possible to change the habit of a day that has passed 😂"
       );
     }
   }
@@ -71,12 +71,12 @@ export function Habit() {
   async function getHabitsByDate() {
     try {
       setLoading(true);
-      const response = await api.get('day', { params: { date } });
+      const response = await api.get("day", { params: { date } });
       setHabitInfo(response.data);
       setCompletedHabits(response.data.completedHabits);
     } catch (error) {
       console.error(error);
-      Alert.alert('Ops!', 'Not found habit =(');
+      Alert.alert("Ops!", "Not found habit =(");
     } finally {
       setLoading(false);
     }
@@ -104,7 +104,7 @@ export function Habit() {
         contentContainerStyle={{ paddingBottom: 32 }}
         className="mt-6"
       >
-        <View className={clsx('', { 'opacity-50': isPreviousToday })}>
+        <View className={clsx("", { "opacity-50": isPreviousToday })}>
           {habitInfo && habitInfo.habits.length > 0 ? (
             habitInfo!.habits.map((habit, index) => (
               <Checkbox
