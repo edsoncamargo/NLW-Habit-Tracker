@@ -120,7 +120,7 @@ Next, follow the steps below:
 2. Start the app:
 
    ```bash
-   npm start
+   npm run start
    ```
 
 ### Mobile
