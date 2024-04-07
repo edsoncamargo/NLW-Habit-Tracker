@@ -120,7 +120,7 @@ Next, follow the steps below:
 2. Start the app:
 
    ```bash
-   npx start
+   npm start
    ```
 
 ### Mobile
