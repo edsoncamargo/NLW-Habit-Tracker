@@ -112,25 +112,25 @@ Next, follow the steps below:
 
 1. Install the dependencies:
 
-   ```bash
+```bash
    cd web
    npm install
-   ```
+```
 
 2. Start the app:
 
-   ```bash
+```bash
    npm run start
-   ```
+```
 
 ### Mobile
 
 1. Install the dependencies:
 
-   ```bash
+```bash
    cd mobile
    npm install
-   ```
+```
 
 2. Start the web:
 
@@ -144,22 +144,22 @@ Next, follow the steps below:
 
 1. Install the dependencies:
 
-   ```bash
+```bash
    cd server
    npm install
-   ```
+```
 
 2. Start the database:
 
-   ```bash
+```bash
    npx prisma migrate deploy
-   ```
+```
 
 3. Start the server:
 
-   ```bash
+```bash
    npm run serve
-   ```
+```
 
 ## Contribution
 
