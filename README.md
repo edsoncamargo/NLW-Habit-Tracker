@@ -134,9 +134,9 @@ Next, follow the steps below:
 
 2. Start the web:
 
-   ```bash
+```bash
    npx expo start
-   ```
+```
 
 3. Scan the QR code using the Expo Go app on your mobile device or use an emulator to test the app.
 
