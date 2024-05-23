@@ -102,8 +102,8 @@ To run the app locally, follow these steps:
 Clone the repository:
 
 ```bash
-git clone https://github.com/edsoncamargo/my-goals-app
-cd your-path/my-goals-app
+git clone git@github.com:edsoncamargo/nlw-habit-tracker-multiplatform.git
+cd your-path/nlw-habit-tracker-multiplatform
 ```
 
 Next, follow the steps below:
